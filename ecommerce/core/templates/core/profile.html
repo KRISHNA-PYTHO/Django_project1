@@ -8,22 +8,22 @@
             <h4 class="text-center">User Dashboard</h4>
             <ul class="nav flex-column mt-3">
                 <li class="nav-item">
-                    <a class="nav-link text-white {% if request.path == '/profile/' %}active{% endif %}" href="{% url 'profile' %}">
+                    <a class="nav-link text-white {% if request.resolver_match.url_name == 'profile' %}active bg-primary{% endif %}" href="{% url 'profile' %}">
                         <i class="fas fa-user-circle"></i> Profile
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white {% if request.path == '/changepassword/' %}active{% endif %}" href="{% url 'changepassword' %}">
+                    <a class="nav-link text-white {% if request.resolver_match.url_name == 'changepassword' %}active bg-primary{% endif %}" href="{% url 'changepassword' %}">
                         <i class="fas fa-lock"></i> Change Password
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white {% if request.path == '/orders/' %}active{% endif %}" href="#">
+                    <a class="nav-link text-white {% if request.resolver_match.url_name == 'orders' %}active bg-primary{% endif %}" href="{% url 'orders' %}">
                         <i class="fas fa-shopping-cart"></i> Orders
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white {% if request.path == '/address/' %}active{% endif %}" href="#">
+                    <a class="nav-link text-white {% if request.resolver_match.url_name == 'address' %}active bg-primary{% endif %}" href="{% url 'address' %}">
                         <i class="fas fa-map-marker-alt"></i> Address
                     </a>
                 </li>
@@ -32,6 +32,15 @@
 
         <!-- Profile Form Section -->
         <div class="col-md-9">
+            <!-- Flash Messages -->
+            {% if messages %}
+            <div class="mt-3">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} text-center fw-bold">{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
             <div class="container profile-form bg-light p-4 rounded shadow">
                 <h3 class="text-primary text-center fw-bold">User Profile</h3>
                 <hr>
@@ -53,21 +62,26 @@
                     {% endfor %}
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success btn-lg px-4">Save Changes</button>
+                        <button type="submit" class="btn btn-success btn-lg px-4">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
                     </div>
                 </form>
             </div>
-
-            <!-- Flash Messages -->
-            {% if messages %}
-            <div class="mt-3">
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} text-center fw-bold">{{ message }}</div>
-                {% endfor %}
-            </div>
-            {% endif %}
         </div>
     </div>
 </div>
+
+<!-- Responsive Sidebar for Mobile -->
+<style>
+    @media (max-width: 768px) {
+        .sidebar {
+            text-align: center;
+        }
+        .nav-link {
+            padding: 10px 0;
+        }
+    }
+</style>
 
 {% endblock content %}

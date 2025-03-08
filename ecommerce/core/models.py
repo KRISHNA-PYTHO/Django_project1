@@ -37,8 +37,7 @@ class CustomerDetail(models.Model):
 class Product(models.Model):
     CATEGORY_CHOICES = [
         ('SHAMPOO', 'Shampoo'), ('HAIR_COLOR', 'Hair Color'), ('SERUM', 'Serum'),
-        ('SKINCARE', 'Skincare'), ('MAKEUP', 'Makeup'),
-    ]
+        ]
 
     name = models.CharField(max_length=100, unique=True)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)

@@ -1,0 +1,106 @@
+/* Ensure the carousel has a nice full-width view */
+#carouselExampleDark {
+    max-width: 100%;
+    margin: auto;
+  }
+  
+  /* Add custom styling to the carousel images to make them responsive */
+  .carousel-item img {
+    object-fit: cover; /* This ensures images cover the area without stretching */
+    height: 250px; /* You can adjust this value based on your design */
+  }
+  
+  /* Optional: Add a dark overlay to make text more readable on top of the images */
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  /* Style the indicators to look better */
+  .carousel-indicators button {
+    background-color: #fff; /* Light color for the indicator dots */
+    opacity: 0.7;
+  }
+  
+  /* Active indicator with a custom color */
+  .carousel-indicators .active {
+    background-color: #0d6efd; /* Change this color to match your theme */
+  }
+  
+  /* Control buttons styling */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #0d6efd;
+     /* Change this color to match your theme */
+  }
+  
+  /* Add space between the carousel and other elements */
+  .carousel-inner {
+    margin-bottom: 30px;
+  }
+  /* ==============================
+   🔹 Global Styles
+============================== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* ==============================
+ 🔹 Card Styling
+============================== */
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  min-height: 350px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensuring cards have equal height */
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title & Description */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-body p {
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+/* ==============================
+ 🔹 Pricing & Discount
+============================== */
+.fw-bold {
+  font-size: 1.3rem;
+  color: #000;
+}
+
+.text-danger {
+  font-weight: bold;
+}
+
+/* ==============================
+ 🔹 Responsive Design
+============================== */
+@media (max-width: 768px) {
+  .card {
+      min-height: 300px;
+  }
+
+  .card-title {
+      font-size: 1rem;
+  }
+}
+
+  

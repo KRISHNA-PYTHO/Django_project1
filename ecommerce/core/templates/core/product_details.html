@@ -17,28 +17,66 @@
             <p class="lead">{{ product.small_description }}</p>
             
             <!-- Pricing -->
-              <!-- Product Description -->
-               <div class="row mt-5">
-                 <div class="col-lg-8 mx-auto">
-                 <h2 class="text-primary">Description</h2>
-                 <p class="text-justify">{{ product.description }}</p>
-                </div>
-               </div>
             <h4 class="fw-bold text-danger">
-                
                 <i class="fas fa-rupee-sign"></i> {{ product.discounted_price }}
                 <small class="text-muted ml-2"><del>{{ product.original_price }}</del></small>
                 <small class="text-success">(Save {{ product.discount_percentage }}%)</small>
             </h4>
+
+            <!-- Stock Availability -->
+            <p class="fw-bold {% if product.stock > 0 %}text-success{% else %}text-danger{% endif %}">
+                {% if product.stock > 0 %}
+                    <i class="fas fa-check-circle"></i> In Stock
+                {% else %}
+                    <i class="fas fa-times-circle"></i> Out of Stock
+                {% endif %}
+            </p>
+
+            <!-- Quantity Selector -->
+            {% if product.stock > 0 %}
+            <div class="mb-3">
+                <label for="quantity" class="fw-bold">Quantity:</label>
+                <input type="number" id="quantity" class="form-control w-25 d-inline" value="1" min="1" max="{{ product.stock }}">
+            </div>
+            {% endif %}
             
             <!-- Buttons -->
             <div class="mt-4 d-grid gap-2 d-md-flex">
-                <a href="#" class="btn btn-primary btn-lg">Add to Cart</a>
-                <a href="#" class="btn btn-success btn-lg">Buy Now</a>
+                {% if product.stock > 0 %}
+                    <button id="addToCart" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button id="buyNow" class="btn btn-success btn-lg">
+                        <i class="fas fa-bolt"></i> Buy Now
+                    </button>
+                {% else %}
+                    <button class="btn btn-secondary btn-lg" disabled>Out of Stock</button>
+                {% endif %}
             </div>
         </div>
     </div>
 
-   
+    <!-- Product Description -->
+    <div class="row mt-5">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="text-primary">Description</h2>
+            <p class="text-justify">{{ product.description }}</p>
+        </div>
+    </div>
 </div>
+
+<!-- JavaScript for Button Animation -->
+<script>
+    document.getElementById("addToCart").addEventListener("click", function () {
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+        setTimeout(() => {
+            this.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+        }, 2000);
+    });
+
+    document.getElementById("buyNow").addEventListener("click", function () {
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+    });
+</script>
+
 {% endblock content %}

@@ -1,38 +1,62 @@
 <div class="container mt-5">    
-  <h1>L’Oréal Cosmetic Categories</h1>
+  <h1 class="text-center text-primary">L’Oréal Cosmetic Categories</h1>
 </div>
+
 <div class="container mt-4">
   <div class="row justify-content-center">
-    
+
     <!-- Skincare Card -->
-    <div class="col-md-4 d-flex justify-content-center">
-      <div class="card text-center" style="width: 18rem;">
-        <img class="card-img-top" src="static/core/images/loreal/skincare.jpg" alt="Skincare">
-        <div class="card-body">
-          <p class="card-text">Discover L’Oréal’s skincare range, designed for all skin types with expert formulas.</p>
+    <div class="col-md-4 d-flex justify-content-center mb-3">
+      <a href="#" class="text-decoration-none text-dark">
+        <div class="card text-center shadow-sm" style="width: 18rem;">
+          <img class="card-img-top" src="static/core/image/skin/asset 4.jpeg" alt="Skincare" loading="lazy">
+          <div class="card-body">
+            <p class="card-text">Discover L’Oréal’s skincare range, designed for all skin types with expert formulas.</p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
-    
+
     <!-- Makeup Card -->
-    <div class="col-md-4 d-flex justify-content-center">
-      <div class="card text-center" style="width: 18rem;">
-        <img class="card-img-top" src="static/core/images/loreal/makeup.jpg" alt="Makeup">
-        <div class="card-body">
-          <p class="card-text">Explore L’Oréal’s makeup collection for bold and natural looks.</p>
+    <div class="col-md-4 d-flex justify-content-center mb-3">
+      <a href="#" class="text-decoration-none text-dark">
+        <div class="card text-center shadow-sm" style="width: 18rem;">
+          <img class="card-img-top" src="static/core/image/serum/asset 3.jpeg" alt="Makeup" loading="lazy">
+          <div class="card-body">
+            <p class="card-text">Explore L’Oréal’s makeup collection for bold and natural looks.</p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
-    
+
     <!-- Haircare Card -->
-    <div class="col-md-4 d-flex justify-content-center">
-      <div class="card text-center" style="width: 18rem;">
-        <img class="card-img-top" src="static/core/images/loreal/haircare.jpg" alt="Haircare">
-        <div class="card-body">
-          <p class="card-text">Nourish and protect your hair with L’Oréal’s premium haircare solutions.</p>
+    <div class="col-md-4 d-flex justify-content-center mb-3">
+      <a href="#" class="text-decoration-none text-dark">
+        <div class="card text-center shadow-sm" style="width: 18rem;">
+          <img class="card-img-top" src="static/core/image/hair/asset 4.jpeg" alt="Haircare" loading="lazy">
+          <div class="card-body">
+            <p class="card-text">Nourish and protect your hair with L’Oréal’s premium haircare solutions.</p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
-    
+
   </div>
 </div>
+
+<style>
+  .card {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+      .card {
+          width: 100% !important;
+      }
+  }
+</style>

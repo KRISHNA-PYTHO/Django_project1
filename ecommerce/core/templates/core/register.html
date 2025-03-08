@@ -24,7 +24,18 @@
             {% for m in form %}
             <div class="mb-3">
                 <label class="form-label fw-bold">{{ m.label }}</label>
-                {{ m }}
+                <div class="input-group">
+                    {% if "password" in m.name %}
+                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                        {{ m }}
+                        <button type="button" class="btn btn-outline-secondary toggle-password" data-target="{{ m.id_for_label }}">
+                            <i class="fa fa-eye"></i>
+                        </button>
+                    {% else %}
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        {{ m }}
+                    {% endif %}
+                </div>
                 <small class="text-danger">{{ m.errors }}</small>
             </div>
             {% endfor %}
@@ -39,4 +50,22 @@
         </div>
     </div>
 </div>
+
+<!-- Password Visibility Toggle Script -->
+<script>
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function () {
+            let targetInput = document.getElementById(this.dataset.target);
+            if (targetInput.type === "password") {
+                targetInput.type = "text";
+                this.innerHTML = '<i class="fa fa-eye-slash"></i>';
+            } else {
+                targetInput.type = "password";
+                this.innerHTML = '<i class="fa fa-eye"></i>';
+            }
+        });
+    });
+</script>
+
 {% endblock content %}
+

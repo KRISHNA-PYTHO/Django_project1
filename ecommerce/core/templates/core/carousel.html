@@ -1,38 +1,49 @@
-<div id="carouselExampleDark" class="carousel carousel-dark slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Discover L’Oréal’s advanced skincare solutions for a glowing complexion.</h5>
-          <p>TR5 Shampoo is a premium hair care solution designed to cleanse, nourish, and strengthen your hair, leaving it soft, shiny, and healthy.</p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Revitalize Your Hair</h5>
-          <p>Professional hair care solutions tailored to your needs.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Enhance Your Beauty</h5>
-          <p>Explore L’Oréal’s latest makeup trends and products.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+{% load static %}
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+
+  <div class="carousel-inner">
+    <!-- Skin Care Slide -->
+    <div class="carousel-item active">
+      <img src="{% static 'core/image/skin/asset 6.jpeg' %}" class="d-block w-100" alt="Skin Care">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h5 class="text-white fw-bold">Discover L’Oréal’s advanced skincare solutions for a glowing complexion.</h5>
+        <p class="text-light">Our premium skincare range ensures hydration, nourishment, and protection for your skin.</p>
+      </div>
+    </div>
+
+    <!-- Hair Care Slide -->
+    <div class="carousel-item">
+      <img src="{% static 'core/image/hair/asset 6.jpeg' %}" class="d-block w-100" alt="Hair Care">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h5 class="text-white fw-bold">Revitalize Your Hair</h5>
+        <p class="text-light">Professional hair care solutions tailored to your needs.</p>
+      </div>
+    </div>
+
+    <!-- Hair Colour Slide -->
+    <div class="carousel-item">
+      <img src="{% static 'core/image/hair_colour/asset 4.jpg' %}" class="d-block w-100" alt="Hair Colour">
+      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+        <h5 class="text-white fw-bold">Enhance Your Hair Colour</h5>
+        <p class="text-light">Explore L’Oréal’s latest hair color shades for a vibrant new look.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Previous & Next Buttons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
